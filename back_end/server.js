@@ -23,6 +23,13 @@ MongoClient.connect('mongodb://localhost:27017', function(err, client) {
     })
   })
 
+  server.get("/api/tickers", function(req, res) {
+    db.collection("tickers").find().toArray(function(err, result) {
+      res.status(200);
+      res.json(result);
+    })
+  })
+
   server.listen(5000, function() {
     console.log('Listening on port 5000');
   })
