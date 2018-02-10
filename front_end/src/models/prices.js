@@ -3,7 +3,7 @@ const Request = require('../services/request.js');
 
 const Prices = function(transactionList) {
   this.list = transactionList;
-  this.prices = [];
+  this.priceArray = [];
   this.companiesList = this.getCompanies();
   this.onUpdate = null;
 };
@@ -30,5 +30,18 @@ Prices.prototype.buildURL = function() {
   var url = "https://www.alphavantage.co/query?function=BATCH_STOCK_QUOTES&symbols=" + commaList + "&apikey=" + apiKey.apiKey
   return url;
 };
+
+Prices.prototype.getStockNumber = function() {
+  this.priceArray.forEach(function(quote){
+    var total = 0;
+    this.list.transactions.forEach(function(transaction) {
+      if (quote.name === transaction.ticker) {
+        total += transaction.number;
+      }
+    }.bind(this));
+    quote.number = total;
+    quote.totalValue = total * quote.price;
+  }.bind(this))
+}
 
 module.exports = Prices;

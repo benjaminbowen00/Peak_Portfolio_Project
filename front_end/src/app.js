@@ -5,8 +5,15 @@ const Prices = require('./models/prices.js');
 var getPrices = function(transactionList) {
   var prices = new Prices(transactionList);
   prices.onUpdate = function(responseBody) {
-    console.log(responseBody);
-  }
+    var array = responseBody["Stock Quotes"];
+    this.priceArray = array.map(function(element){
+      return object = {
+        name: element["1. symbol"],
+        price: element["2. price"]
+      }
+    });
+    this.getStockNumber();    
+  }.bind(prices);
   prices.getCompanyPrices();
   console.log(prices);
 };
