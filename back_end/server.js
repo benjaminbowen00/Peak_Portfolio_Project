@@ -16,7 +16,7 @@ MongoClient.connect('mongodb://localhost:27017', function(err, client) {
 
   const db = client.db("share_data");
 
-  server.get("/api/shares", function(req, res) {
+  server.get("/api/transactions", function(req, res) {
     db.collection("purchased_shares").find().toArray(function(err, result) {
       res.status(200);
       res.json(result);
