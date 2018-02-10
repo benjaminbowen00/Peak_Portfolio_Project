@@ -2,3 +2,4 @@ back_end/node_modules
 front_end/node_modules
 front_end/build/bundle.js
 front_end/build/bundle.js.map
+front_end/src/services/api_key.js
