@@ -1,21 +1,17 @@
 const Request = require('./services/request.js');
 const TransactionList = require('./models/transaction_list.js');
-const Prices = require('./models/prices.js');
+const Portfolio = require('./models/portfolio.js');
 
 var getPrices = function(transactionList) {
-  var prices = new Prices(transactionList);
-  prices.onUpdate = function(responseBody) {
-    var array = responseBody["Stock Quotes"];
-    this.priceArray = array.map(function(element){
-      return object = {
-        name: element["1. symbol"],
-        price: element["2. price"]
-      }
-    });
-    this.getStockNumber();    
-  }.bind(prices);
-  prices.getCompanyPrices();
-  console.log(prices);
+  var portfolio = new Portfolio(transactionList);
+  portfolio.onUpdate = updatePortfolioShares.bind(portfolio);
+
+  portfolio.getCompanyPrices();
+};
+
+var updatePortfolioShares = function(responseBody) {
+  var array = responseBody["Stock Quotes"];
+  this.setSharesArray(array);
 };
 
 var getResponse = function(responseBody) {
