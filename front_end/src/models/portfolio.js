@@ -54,4 +54,14 @@ Portfolio.prototype.getStockNumberAndTotal = function() {
   }.bind(this))
 }
 
+Portfolio.prototype.getCompanyName = function(ticker) {
+  var name = null;
+  this.list.transactions.forEach(function(element) {
+    if (ticker === element.ticker) {
+      name = element.name;
+    }
+  })
+  return name;
+}
+
 module.exports = Portfolio;

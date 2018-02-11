@@ -1,6 +1,8 @@
 const Request = require('./services/request.js');
 const TransactionList = require('./models/transaction_list.js');
 const Portfolio = require('./models/portfolio.js');
+const SharesListView = require('./views/shares_list_view.js');
+const PieChart= require('./views/pie_chart.js');
 
 var getPrices = function(transactionList) {
   var portfolio = new Portfolio(transactionList);
@@ -11,6 +13,9 @@ var getPrices = function(transactionList) {
 var updatePortfolioShares = function(responseBody) {
   var array = responseBody["Stock Quotes"];
   this.setSharesArray(array);
+  var sharesListView = new SharesListView(this);
+  sharesListView.buildTable();
+  var pieChart = new PieChart(this);
 };
 
 var getResponse = function(responseBody) {
@@ -22,6 +27,32 @@ const app = function() {
   var transactionList = new TransactionList('http://localhost:5000/api/transactions');
   transactionList.onUpdate = getResponse.bind(transactionList);
   transactionList.getTransactions();
+
+  // Gets the modal (loads on the main webpage)
+  var modal = document.getElementById('modalPorfolioUpdate');
+
+  // Gets the button that opens the modal (loads on the main webpage)
+  var btn = document.getElementById("openModalBtn");
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+
+  // onClick button opens the modal
+  btn.onclick = function() {
+      modal.style.display = "block";
+  }
+
+  // this is the 'x' in the top corner and closes the modal
+  span.onclick = function() {
+      modal.style.display = "none";
+  }
+
+  // This shuts the modal if the user clicks anywhere else on the page.
+  window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+      }
+  }
 };
 
 document.addEventListener('DOMContentLoaded', app);
