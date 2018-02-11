@@ -1,6 +1,7 @@
 const Request = require('./services/request.js');
 const TransactionList = require('./models/transaction_list.js');
 const Portfolio = require('./models/portfolio.js');
+const SharesListView = require('./views/shares_list_view.js');
 
 var getPrices = function(transactionList) {
   var portfolio = new Portfolio(transactionList);
@@ -11,6 +12,8 @@ var getPrices = function(transactionList) {
 var updatePortfolioShares = function(responseBody) {
   var array = responseBody["Stock Quotes"];
   this.setSharesArray(array);
+  var sharesListView = new SharesListView(this);
+  sharesListView.buildTable();
 };
 
 var getResponse = function(responseBody) {
