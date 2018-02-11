@@ -3,6 +3,7 @@ const TransactionList = require('./models/transaction_list.js');
 const Portfolio = require('./models/portfolio.js');
 const SharesListView = require('./views/shares_list_view.js');
 const PieChart= require('./views/pie_chart.js');
+const TotalView = require('./views/total_view.js')
 
 var getPrices = function(transactionList) {
   var portfolio = new Portfolio(transactionList);
@@ -16,6 +17,8 @@ var updatePortfolioShares = function(responseBody) {
   var sharesListView = new SharesListView(this);
   sharesListView.buildTable();
   var pieChart = new PieChart(this);
+  var portfolioTotalView = new TotalView(this);
+  portfolioTotalView.showTotal();
 };
 
 var getResponse = function(responseBody) {

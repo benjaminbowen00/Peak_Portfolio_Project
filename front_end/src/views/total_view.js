@@ -13,3 +13,5 @@ TotalView.prototype.showTotal = function(){
 
 
 }
+
+module.exports = TotalView;
