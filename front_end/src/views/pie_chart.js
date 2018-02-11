@@ -1,4 +1,6 @@
-var PieChart = function(title, data) {
+var PieChart = function(portfolio) {
+
+  var data = portfolio.sharesArray.map(x=> {return {name: x.name, y: x.totalValue}});
 
   var container = document.getElementById("pie-chart");
 
@@ -8,7 +10,7 @@ var PieChart = function(title, data) {
       renderTo: container
     },
     title: {
-      text: title
+      text: "Breakdown of total value of portfolio"
     },
     series: [
       {
