@@ -9,16 +9,15 @@ const Portfolio = function(transactionList) {
 };
 
 Portfolio.prototype.getCompanyPrices = function() {
-  console.log(this.buildURL());
   var request = new Request(this.buildURL());
   request.get(this.onUpdate);
 };
 
 Portfolio.prototype.getCompanies = function() {
-  var array = ["MSFT", "AAPL"];
+  var array = [];
   this.list.transactions.forEach(function(element, index) {
-    if (!array.includes(element.symbol)) {
-      array.push(element.symbol);
+    if (!array.includes(element.ticker)) {
+      array.push(element.ticker);
     }
   })
   return array;
@@ -39,6 +38,7 @@ Portfolio.prototype.setSharesArray = function(array) {
     }
 })
   this.getStockNumberAndTotal();
+  console.log(this);
 };
 
 Portfolio.prototype.getStockNumberAndTotal = function() {
