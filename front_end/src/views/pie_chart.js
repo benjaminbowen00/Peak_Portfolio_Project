@@ -20,3 +20,5 @@ var PieChart = function(portfolio) {
   });
 
 };
+
+module.exports = PieChart;
