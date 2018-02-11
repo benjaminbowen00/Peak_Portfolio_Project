@@ -31,6 +31,6 @@ SharesListView.prototype.buildTable = function() {
     total.innerText = element.totalValue.toFixed(2);
     tableRow.appendChild(total);
   }.bind(this));
-}
+};
 
 module.exports = SharesListView;
