@@ -5,7 +5,6 @@ const Portfolio = require('./models/portfolio.js');
 var getPrices = function(transactionList) {
   var portfolio = new Portfolio(transactionList);
   portfolio.onUpdate = updatePortfolioShares.bind(portfolio);
-
   portfolio.getCompanyPrices();
 };
 
@@ -15,9 +14,7 @@ var updatePortfolioShares = function(responseBody) {
 };
 
 var getResponse = function(responseBody) {
-  console.log(this);
   this.transactions = responseBody;
-  console.log(this.transactions);
   getPrices(this);
 };
 
@@ -25,8 +22,6 @@ const app = function() {
   var transactionList = new TransactionList('http://localhost:5000/api/transactions');
   transactionList.onUpdate = getResponse.bind(transactionList);
   transactionList.getTransactions();
-
-
 };
 
 document.addEventListener('DOMContentLoaded', app);
