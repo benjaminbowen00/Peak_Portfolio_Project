@@ -13,6 +13,8 @@ csv().fromFile(csvFilePathOne).on('json',(jsonObj) => {
     console.log('end')
 });
 
+console.log(csvFilePathOne);
+
 csv().fromFile(csvFilePathOne).on('json',(jsonObj) => {
     // combine csv header row and csv line to a json object
     tickers2.push(jsonObj);

@@ -42,7 +42,13 @@ var transactions = [
   ticker: "IJT",
   purchase_price: 165.41,
   number: 50
-  }
+ },
+ {
+ name: "Apple Inc",
+ ticker: "AAPL",
+ purchase_price: 155.41,
+ number: 50
+ }
 ]
 
 MongoClient.connect('mongodb://localhost:27017', function(err, client) {
@@ -51,7 +57,7 @@ MongoClient.connect('mongodb://localhost:27017', function(err, client) {
     return;
   };
   const db = client.db("share_data");
-  db.dropDatabase();
+  // db.dropDatabase();
   db.collection("purchased_shares").insert(transactions, function(err, result) {
     console.log(result);
   });
