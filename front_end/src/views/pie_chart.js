@@ -1,3 +1,5 @@
+const Highcharts = require('highcharts');
+
 var PieChart = function(portfolio) {
 
   var data = portfolio.sharesArray.map(x=> {return {name: x.name, y: x.totalValue}});
@@ -20,3 +22,5 @@ var PieChart = function(portfolio) {
   });
 
 };
+
+module.exports = PieChart;
