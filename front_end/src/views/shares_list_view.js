@@ -23,11 +23,12 @@ SharesListView.prototype.buildTable = function() {
     tableRow.appendChild(number);
 
     var price = document.createElement('td');
-    price.innerText = element.price;
+    var priceNumber = parseFloat(element.price);
+    price.innerText = priceNumber.toFixed(2);
     tableRow.appendChild(price);
 
     var total = document.createElement('td');
-    total.innerText = element.totalValue;
+    total.innerText = element.totalValue.toFixed(2);
     tableRow.appendChild(total);
   }.bind(this));
 }
