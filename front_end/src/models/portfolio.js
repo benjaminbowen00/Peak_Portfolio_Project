@@ -64,4 +64,12 @@ Portfolio.prototype.getCompanyName = function(ticker) {
   return name;
 }
 
+Portfolio.prototype.getTotalValue = function(){
+  var total = 0;
+  this.sharesArray.forEach(function(element){
+   total += element.totalValue
+  })
+  return total;
+}
+
 module.exports = Portfolio;
