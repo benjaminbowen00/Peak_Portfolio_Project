@@ -34,6 +34,6 @@ SharesListView.prototype.buildTable = function() {
     tableRow.appendChild(total);
 >>>>>>> f59c4dd08f326f083e41e2dd7431b1cb077fdf4b
   }.bind(this));
-}
+};
 
 module.exports = SharesListView;

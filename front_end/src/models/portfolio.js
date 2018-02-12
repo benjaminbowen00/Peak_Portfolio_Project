@@ -32,13 +32,20 @@ Portfolio.prototype.buildURL = function() {
 
 Portfolio.prototype.setSharesArray = function(array) {
   this.sharesArray = array.map(function(element){
-    return object = {
-      name: element["1. symbol"],
-      price: element["2. price"]
+    if (this.validatePrice(parseFloat(element["2. price"]))){
+      return object = {
+        name: element["1. symbol"],
+        price: element["2. price"]
+      }
+    } else {
+      return object = {
+        name: element["1. symbol"],
+        price: this.usePurchasePrice(element)
+      }
     }
-})
+
+}.bind(this))
   this.getStockNumberAndTotal();
-  console.log(this);
 };
 
 Portfolio.prototype.getStockNumberAndTotal = function() {
@@ -70,6 +77,16 @@ Portfolio.prototype.getTotalValue = function(){
    total += element.totalValue
   })
   return total;
-}
+};
+
+Portfolio.prototype.validatePrice = function(price) {
+  return price > 0;
+};
+
+Portfolio.prototype.usePurchasePrice = function(share) {
+  var result = this.list.transactions.filter(element => element.ticker === share["1. symbol"]);
+  var length = result.length;
+  return result[length-1].purchase_price;
+};
 
 module.exports = Portfolio;
