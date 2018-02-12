@@ -1,7 +1,7 @@
 
 
 function autocomplete(inp, arr) {
-
+  console.log(inp, arr);
   var currentFocus;
 
   inp.addEventListener("input", function(e) {
@@ -40,24 +40,24 @@ function autocomplete(inp, arr) {
   inp.addEventListener("keydown", function(e) {
       var x = document.getElementById(this.id + "autocomplete-list");
       if (x) x = x.getElementsByTagName("div");
-      if (e.keyCode == 40) {
-
-        currentFocus++;
-
-        addActive(x);
-      } else if (e.keyCode == 38) { //up
-
-        currentFocus--;
-
-        addActive(x);
-      } else if (e.keyCode == 13) {
-
-        e.preventDefault();
-        if (currentFocus > -1) {
-
-          if (x) x[currentFocus].click();
-        }
-      }
+      // if (e.keyCode == 40) {
+      //
+      //   currentFocus++;
+      //
+      //   addActive(x);
+      // } else if (e.keyCode == 38) { //up
+      //
+      //   currentFocus--;
+      //
+      //   addActive(x);
+      // } else if (e.keyCode == 13) {
+      //
+      //   e.preventDefault();
+      //   if (currentFocus > -1) {
+      //
+      //     if (x) x[currentFocus].click();
+      //   }
+      // }
   });
   function addActive(x) {
     if (!x) return false;
@@ -93,4 +93,4 @@ function autocomplete(inp, arr) {
 var shares = ["Apple", "Microsoft", "Acorn", "Yamaha"];
 
 
-autocomplete(document.getElementById("sharesInput"), shares);
+module.exports = autocomplete;
