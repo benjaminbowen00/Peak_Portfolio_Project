@@ -24,41 +24,21 @@ ModalBox.prototype.buildDatalistBox = function (data) {
   // var modalContentDiv = document.createElement('div');
   var datalistCompanies = document.querySelector('#companies');
 
-  // var mycompanies = ["apple", "Microsoft", "IBM"];
-  // var mycompanies = new CompaniesList();
-  // mycompanies.getCompanies();
-
   data.forEach(function(company){
     var option = document.createElement('option');
     option.value = company.name;
     datalistCompanies.appendChild(option);
-
   })
 
+  var savePurchase = function(){
+    var selectedCompanyElement = document.querySelector('#selected-company')
+    var numberOfSharesElement = document.querySelector('#number-of-shares')
+    var outputString = "You bought "+numberOfSharesElement.value+ " shares in "+selectedCompanyElement.value
+    console.log(outputString);
+  }
 
+  var savePurchaseButton = document.querySelector('#save-purchase-button');
+  savePurchaseButton.addEventListener('click', savePurchase)
 
-  // var inputTag = document.createElement('input');
-  // var labelTag = document.createElement('label');
-  // var datalist = document.createElement('DATALIST');
-  // console.log(datalist);
-  // console.log(this.companiesList);
-  // var option = document.createElement('option');
-  // console.log(option);
-  // option.value = "hello"
-  // datalist.appendChild(option);
-
-
-  // this.companiesList.forEach(function(company){
-  //   var option = document.createElement('option');
-  //   option.innerText = company.name;
-  //   console.log(option);
-  //   datalist.appendChild(option);
-  // });
-
-  // datalistDiv.appendChild(datalist);
-
-
-
-  // this.container.innerHTML = ""
 }
 module.exports = ModalBox;

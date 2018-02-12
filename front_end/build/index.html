@@ -66,11 +66,14 @@
         <span class="close">&times;</span>
         <div id='datalist-div'>
 
-          <label>Choose a browser from this list:
-            <input list="companies" name="myBrowser" /></label>
+          <label>Select a company:
+            <input list="companies" name="myBrowser" id="selected-company"/></label>
             <datalist id="companies">
-
             </datalist>
+            <label>Number of shares:
+            <input id="number-of-shares" type="text" /></label>
+            <button id="save-purchase-button">Save</button>
+
         </div>
         <!-- <h3>Update your portfolio</h3>
         <p>Add purchased shares</p>

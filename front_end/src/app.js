@@ -50,7 +50,6 @@ const app = function() {
       modal.style.display = "block";
       var modalBoxDiv = document.querySelector('#datalist-div');
       var modalBox = new ModalBox(modalBoxDiv);
-      
       modalBox.getCompaniesList();
 
   }
