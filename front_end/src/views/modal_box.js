@@ -12,15 +12,17 @@ ModalBox.prototype.getCompaniesList = function () {
   completeCompaniesList.getCompanies();
 
   console.log("inside modal box", completeCompaniesList);
-
-  // console.log(completeCompaniesList.companies);
-  // return completeCompaniesList.companies
 };
+
+
+
+
 
 ModalBox.prototype.buildDatalistBox = function (data) {
 
-  console.log(this.companiesList);
   console.log("bulddataBox");
+  this.companiesList = data;
+  console.log(this.companiesList);
   // var modalContentDiv = document.createElement('div');
   var datalistCompanies = document.querySelector('#companies');
 
@@ -30,15 +32,38 @@ ModalBox.prototype.buildDatalistBox = function (data) {
     datalistCompanies.appendChild(option);
   })
 
+  var getTickerFromCompanyName = function(company){
+    var ticker = null;
+    data.forEach(function(companyFromList){
+      if (companyFromList.name === company){
+        ticker = companyFromList.ticker;
+      }
+    })
+
+    return ticker;
+  }
+
   var savePurchase = function(){
+    console.log("inside savePurchase", this);
     var selectedCompanyElement = document.querySelector('#selected-company')
     var numberOfSharesElement = document.querySelector('#number-of-shares')
-    var outputString = "You bought "+numberOfSharesElement.value+ " shares in "+selectedCompanyElement.value
+    var outputString = `You bought ${numberOfSharesElement.value} shares in ${selectedCompanyElement.value}. The ticker is ${getTickerFromCompanyName(selectedCompanyElement.value)}`
     console.log(outputString);
   }
+
+
+
 
   var savePurchaseButton = document.querySelector('#save-purchase-button');
   savePurchaseButton.addEventListener('click', savePurchase)
 
 }
+
+
+
+
+
+
+
+
 module.exports = ModalBox;

@@ -1,13 +1,11 @@
 const Request = require('../services/request.js');
 
-
 var CompaniesList = function() {
   this.companies = [];
   this.onLoad = null;
 }
 
 CompaniesList.prototype.getCompanies = function () {
-  // console.log("getCompanies being called");
   var request = new Request('http://localhost:5000/api/tickers');
   request.get(this.populateCompaniesArray.bind(this));
 };
