@@ -1,5 +1,6 @@
 const Request = require('../services/request.js');
-const APIKey = require('../services/api_key.js')
+const APIKey = require('../services/api_key.js');
+const Materialize = require('materialize-css')
 
 const Transaction = function(name, ticker, number) {
   this.name = name;
@@ -18,9 +19,14 @@ Transaction.prototype.updatePrice = function(responseBody) {
   var priceData = responseBody["Time Series (1min)"];
   var price = priceData[0];
   this.purchase_price = price["4. close"];
+  this.save();
 };
 
 Transaction.prototype.save = function() {
   var request = new Request('http://localhost:5000/api/transactions');
-  request.post(, this);
+  request.post(this.toast.bind(this), this);
+};
+
+Transaction.prototype.toast = function() {
+  Materialize.toast('Transaction saved!', 4000);
 };
