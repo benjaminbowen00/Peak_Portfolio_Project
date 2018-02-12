@@ -26,14 +26,11 @@ SharesListView.prototype.buildTable = function() {
     var priceNumber = parseFloat(element.price);
     price.innerText = priceNumber.toFixed(2);
     tableRow.appendChild(price);
-<<<<<<< HEAD
-=======
 
     var total = document.createElement('td');
     total.innerText = element.totalValue.toFixed(2);
     tableRow.appendChild(total);
->>>>>>> f59c4dd08f326f083e41e2dd7431b1cb077fdf4b
   }.bind(this));
-};
+}
 
 module.exports = SharesListView;
