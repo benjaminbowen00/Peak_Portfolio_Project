@@ -17,8 +17,8 @@ Transaction.prototype.getPrice = function() {
 
 Transaction.prototype.updatePrice = function(responseBody) {
   var priceData = responseBody["Time Series (1min)"];
-  var price = priceData[0];
-  this.purchase_price = price["4. close"];
+  var price = Object.values(priceData);
+  this.purchase_price = price[0]["4. close"];
   this.save();
 };
 
@@ -30,3 +30,5 @@ Transaction.prototype.save = function() {
 Transaction.prototype.toast = function() {
   Materialize.toast('Transaction saved!', 4000);
 };
+
+module.exports = Transaction;

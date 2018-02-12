@@ -5,6 +5,7 @@ const SharesListView = require('./views/shares_list_view.js');
 const PieChart= require('./views/pie_chart.js');
 const TotalView = require('./views/total_view.js');
 const autocomplete = require('./views/modal_box.js');
+const Transaction = require('./models/transaction.js');
 
 var getPrices = function(transactionList) {
   var portfolio = new Portfolio(transactionList);
@@ -59,6 +60,7 @@ const app = function() {
           modal.style.display = "none";
       }
   }
+
 };
 
 document.addEventListener('DOMContentLoaded', app);
