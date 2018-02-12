@@ -25,10 +25,6 @@ SharesListView.prototype.buildTable = function() {
     var price = document.createElement('td');
     price.innerText = element.price;
     tableRow.appendChild(price);
-
-    var total = document.createElement('td');
-    total.innerText = element.totalValue;
-    tableRow.appendChild(total);
   }.bind(this));
 }
 
