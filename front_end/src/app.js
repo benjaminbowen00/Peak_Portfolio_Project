@@ -6,6 +6,7 @@ const PieChart= require('./views/pie_chart.js');
 const TotalView = require('./views/total_view.js');
 const autocomplete = require('./views/modal_box.js');
 const Transaction = require('./models/transaction.js');
+const ModalBox = require('./views/modal_box.js');
 
 var getPrices = function(transactionList) {
   var portfolio = new Portfolio(transactionList);
@@ -33,7 +34,7 @@ const app = function() {
   transactionList.onUpdate = getResponse.bind(transactionList);
   transactionList.getTransactions();
 
-  autocomplete(document.getElementById('sharesInput'), ['Apple', 'Microsoft']);
+  // autocomplete(document.getElementById('sharesInput'), ['Apple', 'Microsoft']);
 
   // Gets the modal (loads on the main webpage)
   var modal = document.getElementById('modalPorfolioUpdate');
@@ -47,6 +48,11 @@ const app = function() {
   // onClick button opens the modal
   btn.onclick = function() {
       modal.style.display = "block";
+      var modalBoxDiv = document.querySelector('#datalist-div');
+      var modalBox = new ModalBox(modalBoxDiv);
+      
+      modalBox.getCompaniesList();
+
   }
 
   // this is the 'x' in the top corner and closes the modal

@@ -1,96 +1,64 @@
+const CompaniesList = require('../models/companies_list.js');
 
-
-function autocomplete(inp, arr) {
-  console.log(inp, arr);
-  var currentFocus;
-
-  inp.addEventListener("input", function(e) {
-      var a, b, i, val = this.value;
-
-      closeAllLists();
-      if (!val) { return false;}
-      currentFocus = -1;
-
-      a = document.createElement("DIV");
-      a.setAttribute("id", this.id + "autocomplete-list");
-      a.setAttribute("class", "autocomplete-items");
-
-      this.parentNode.appendChild(a);
-      for (i = 0; i < arr.length; i++) {
-
-        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
-
-          b = document.createElement("DIV");
-          b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
-          b.innerHTML += arr[i].substr(val.length);
-
-          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
-
-          b.addEventListener("click", function(e) {
-
-              inp.value = this.getElementsByTagName("input")[0].value;
-
-              closeAllLists();
-          });
-          a.appendChild(b);
-        }
-      }
-  });
-
-  inp.addEventListener("keydown", function(e) {
-      var x = document.getElementById(this.id + "autocomplete-list");
-      if (x) x = x.getElementsByTagName("div");
-      // if (e.keyCode == 40) {
-      //
-      //   currentFocus++;
-      //
-      //   addActive(x);
-      // } else if (e.keyCode == 38) { //up
-      //
-      //   currentFocus--;
-      //
-      //   addActive(x);
-      // } else if (e.keyCode == 13) {
-      //
-      //   e.preventDefault();
-      //   if (currentFocus > -1) {
-      //
-      //     if (x) x[currentFocus].click();
-      //   }
-      // }
-  });
-  function addActive(x) {
-    if (!x) return false;
-
-    removeActive(x);
-    if (currentFocus >= x.length) currentFocus = 0;
-    if (currentFocus < 0) currentFocus = (x.length - 1);
-
-    x[currentFocus].classList.add("autocomplete-active");
-  }
-  function removeActive(x) {
-
-    for (var i = 0; i < x.length; i++) {
-      x[i].classList.remove("autocomplete-active");
-    }
-  }
-  function closeAllLists(elmnt) {
-
-    var x = document.getElementsByClassName("autocomplete-items");
-    for (var i = 0; i < x.length; i++) {
-      if (elmnt != x[i] && elmnt != inp) {
-        x[i].parentNode.removeChild(x[i]);
-      }
-    }
-  }
-
-  document.addEventListener("click", function (e) {
-      closeAllLists(e.target);
-      });
+var ModalBox = function(container) {
+  this.container = container;
+  this.companiesList = [];
 }
 
+ModalBox.prototype.getCompaniesList = function () {
+  var completeCompaniesList = new CompaniesList();
+  // console.log(completeCompaniesList);
+  completeCompaniesList.onLoad = this.buildDatalistBox;
+  completeCompaniesList.getCompanies();
 
-var shares = ["Apple", "Microsoft", "Acorn", "Yamaha"];
+  console.log("inside modal box", completeCompaniesList);
+
+  // console.log(completeCompaniesList.companies);
+  // return completeCompaniesList.companies
+};
+
+ModalBox.prototype.buildDatalistBox = function (data) {
+
+  console.log(this.companiesList);
+  console.log("bulddataBox");
+  // var modalContentDiv = document.createElement('div');
+  var datalistCompanies = document.querySelector('#companies');
+
+  // var mycompanies = ["apple", "Microsoft", "IBM"];
+  // var mycompanies = new CompaniesList();
+  // mycompanies.getCompanies();
+
+  data.forEach(function(company){
+    var option = document.createElement('option');
+    option.value = company.name;
+    datalistCompanies.appendChild(option);
+
+  })
 
 
-module.exports = autocomplete;
+
+  // var inputTag = document.createElement('input');
+  // var labelTag = document.createElement('label');
+  // var datalist = document.createElement('DATALIST');
+  // console.log(datalist);
+  // console.log(this.companiesList);
+  // var option = document.createElement('option');
+  // console.log(option);
+  // option.value = "hello"
+  // datalist.appendChild(option);
+
+
+  // this.companiesList.forEach(function(company){
+  //   var option = document.createElement('option');
+  //   option.innerText = company.name;
+  //   console.log(option);
+  //   datalist.appendChild(option);
+  // });
+
+  // datalistDiv.appendChild(datalist);
+
+
+
+  // this.container.innerHTML = ""
+}
+module.exports = ModalBox;
