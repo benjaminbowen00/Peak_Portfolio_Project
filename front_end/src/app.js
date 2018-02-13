@@ -35,25 +35,34 @@ const app = function() {
   transactionList.getTransactions();
 
   var modal = document.getElementById('modalPorfolioUpdate');
-  window.onclick = function(event) {
-      if (event.target == modal) {
-          modal.style.display = "none";
-      }
-  };
+
+  var removeModal = document.getElementById('modalRemoveShares');
 
   var btn = document.getElementById("openModalBtn");
   btn.onclick = function() {
-      modal.style.display = "block";
-      var modalBoxDiv = document.querySelector('#datalist-div');
-      var modalBox = new ModalBox(modalBoxDiv);
-      modalBox.getCompaniesList();
+    modal.style.display = "block";
+    var modalBoxDiv = document.querySelector('#datalist-div');
+    var modalBox = new ModalBox(modalBoxDiv);
+    modalBox.getCompaniesList();
 
   };
 
   var span = document.getElementsByClassName("close")[0];
   span.onclick = function() {
-      modal.style.display = "none";
+    modal.style.display = "none";
   };
+
+  var spanRemove = document.getElementsByClassName("close")[1];
+  spanRemove.onclick = function() {
+    removeModal.style.display = "none";
+  };
+
+  window.onclick = function(event) {
+    if(event.target.className === 'modal') {
+      event.target.style.display = 'none';
+    }
+  }
+
 
 };
 
