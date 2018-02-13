@@ -6,15 +6,18 @@
 body {
     margin: 0;
     color: #000066
+    font-family: 'Lora', serif;
 }
 
 .header {
     background-color: #d0d0e1;
-    padding: 10px;
+    padding: 0px;
     text-align: center;
-    color: #000066
+    color: #000066;
+    border-top: 10px solid #000066;
+    border-bottom: 10px solid #000066;
 }
-
+/*
 .topnav {
     overflow: hidden;
     background-color: #000066;
@@ -32,7 +35,29 @@ body {
 .topnav a:hover {
     background-color: #d0d0e1;
     color: black;
-}
+} */
+
+ /* .button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 24px;
+  cursor: point er;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #03c692;
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 8px #999;
+} */
+
+/* .button:hover {background-color: #81a2e8}
+
+.button:active {
+  background-color: #03c692;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px); */
 
 .column {
     float: left;
@@ -50,6 +75,10 @@ body {
     .column {
         width: 100%;
     }
+}
+
+button {
+
 }
 
 .modal {
@@ -91,3 +120,31 @@ body {
     text-decoration: none;
     cursor: pointer;
 }
+
+
+#portfolio-value-display {
+    text-align: center;
+}
+
+/* div {
+  background-color: #d0d0e1;
+} */
+
+/* Hicharts  */
+@import 'https://code.highcharts.com/css/highcharts.css';
+
+.highcharts-background {
+	fill: #d0d0e1;
+	stroke: #000066;
+	stroke-width: 2px;
+}
+
+#total-value {
+  font-family: 'Roboto', sans-serif;
+  font-size: 80px;
+}
+/* for numerals
+font-family: 'Roboto', sans-serif;
+
+for words
+font-family: 'Lora', serif; */

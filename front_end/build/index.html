@@ -4,7 +4,8 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="./styles.css">
   <script src="bundle.js"></script>
-  <title></title>
+  <link href="https://fonts.googleapis.com/css?family=Lora|Roboto" rel="stylesheet">
+  <title>Peak Portfolio</title>
 </head>
 
 <body>
@@ -15,19 +16,25 @@
   </div>
 
   <div class="topnav">
-    <a href="#">Home</a>
-    <a href="#">Insights</a>
   </div>
 
-  <div class="row">
+<!-- above the crease -->
+
+  <div class="row" >
     <div class="column">
       <h2>Total portfolio value</h2>
       <p id="total-value"></p>
     </div>
+    <div class="column">
+      <div class="pie-chart" id="pie-chart">Pie chart goes here</div>
+    </div>
   </div>
 
-    <div class="row">
-    <div class="column">
+<!-- centered table below the crease -->
+
+  <div class="row">
+
+
       <h2>Shares</h2>
       <p>Shares list</p>
       <table id="shares-list">
@@ -39,12 +46,9 @@
           <th>Total Value ($)</th>
         </tr>
       </table>
-    </div>
-    <div class="column">
-      <h2>Porfolio weighting</h2>
-      <div id="pie-chart">Pie chart goes here</div>
-    </div>
+
   </div>
+
   <div class="row">
     <div class="column">
       <h2>Performance</h2>
@@ -53,47 +57,47 @@
   </div>
 </div>
 
-    <!-- modal element -->
+<!-- modal element -->
 
-    <!-- This button opens the modal -->
-    <button id="openModalBtn">Update portfolio</button>
+<!-- This button opens the modal -->
+<button id="openModalBtn">Update portfolio</button>
 
-    <!-- Modal box -->
-    <div id="modalPorfolioUpdate" class="modal">
+<!-- Modal box -->
+<div id="modalPorfolioUpdate" class="modal">
 
-      <!-- Modal box content -->
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <div id='datalist-div'>
+  <!-- Modal box content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div id='datalist-div'>
 
-          <label>Select a company:
-            <input list="companies" name="myBrowser" id="selected-company"/></label>
-            <datalist id="companies">
-            </datalist>
-            <label>Number of shares:
-            <input id="number-of-shares" type="text" /></label>
-            <button id="save-purchase-button">Save</button>
+      <label>Select a company:
+        <input list="companies" name="myBrowser" id="selected-company"/></label>
+        <datalist id="companies">
+        </datalist>
+        <label>Number of shares:
+          <input id="number-of-shares" type="text" /></label>
+          <button id="save-purchase-button">Save</button>
 
         </div>
         <!-- <h3>Update your portfolio</h3>
         <p>Add purchased shares</p>
-<form autocomplete="off" action="/action_page.php">
-  <div class="autocomplete" style="width:300px;">
-    <input id="sharesInput" type="text"  placeholder="company">
-  </div>
-  <input type="submit">
-</form>
-        <p>Remove sold shares</p>
-        <select>Remove shares from array of owned shares</select>
-        <select>No. of shares</select>
-        <button>Remove</button>
-
-        <p>Update existing shares</p>
-        <select>Update shares from array of owned shares</select>
-        <select>No. of shares</select>
-        <button>Update</button> -->
+        <form autocomplete="off" action="/action_page.php">
+        <div class="autocomplete" style="width:300px;">
+        <input id="sharesInput" type="text"  placeholder="company">
       </div>
-    </div>
+      <input type="submit">
+    </form>
+    <p>Remove sold shares</p>
+    <select>Remove shares from array of owned shares</select>
+    <select>No. of shares</select>
+    <button>Remove</button>
+
+    <p>Update existing shares</p>
+    <select>Update shares from array of owned shares</select>
+    <select>No. of shares</select>
+    <button>Update</button> -->
+  </div>
+</div>
 
 </body>
 </html>
