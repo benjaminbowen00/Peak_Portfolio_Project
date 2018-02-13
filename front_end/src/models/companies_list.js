@@ -12,7 +12,6 @@ CompaniesList.prototype.getCompanies = function () {
 
 CompaniesList.prototype.populateCompaniesArray = function (responseBody) {
   this.companies = responseBody;
-  console.log("inside companies list", this.companies);
   this.onLoad(responseBody);
 };
 

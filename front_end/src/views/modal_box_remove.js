@@ -31,7 +31,6 @@ ModalBoxRemove.prototype.buildBox = function(name) {
   var numberOfSharesToRemove = document.querySelector('#number-of-shares-remove').value * -1;
 
   var transaction = new Transaction(selectedCompanyName, selectedTicker, numberOfSharesToRemove);
-  console.log(transaction);
   transaction.getPrice();
   }
   removeSaveButton.addEventListener("click", saveRemovedShares)
