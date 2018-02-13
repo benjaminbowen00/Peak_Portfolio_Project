@@ -50,11 +50,13 @@ const app = function() {
   var span = document.getElementsByClassName("close")[0];
   span.onclick = function() {
     modal.style.display = "none";
+    app();
   };
 
   var spanRemove = document.getElementsByClassName("close")[1];
   spanRemove.onclick = function() {
     removeModal.style.display = "none";
+    app();
   };
 
   window.onclick = function(event) {
