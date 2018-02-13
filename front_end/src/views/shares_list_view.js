@@ -39,7 +39,7 @@ SharesListView.prototype.buildTable = function() {
     tableRow.appendChild(total);
 
     var removeShareLink = document.createElement('a');
-    removeShareLink.innerText = "Remove shares";
+    removeShareLink.innerText = "x";
     removeShareLink.addEventListener('click',function(){
       modalRemoveShares = document.querySelector('#modalRemoveShares');
       modalBoxRemove = new ModalBoxRemove(modalRemoveShares, this.portfolio);

@@ -21,7 +21,14 @@ h2.holdings-table {
   text-align: center;
 }
 
-th, td {
+th {
+  padding: 10px;
+  text-align: left;
+  background-color: #000066;
+  color: #d0d0e1;
+}
+
+td {
   padding: 10px;
   text-align: left;
   background-color: #d0d0e1;
@@ -107,7 +114,7 @@ button:active {
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%;
+  width: 75%;
   border-radius: 20px;
   color: #fefefe;
 }
@@ -149,6 +156,7 @@ button:active {
   font-family: 'Roboto', sans-serif;
   font-size: 8vw;
 }
+
 
 
 /* for numerals
