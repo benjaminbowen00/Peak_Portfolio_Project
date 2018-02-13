@@ -11,6 +11,9 @@ var PieChart = function(portfolio) {
       type: 'pie',
       renderTo: container
     },
+    tooltip: {
+      pointFormat: 'Portfolio proportion <b>{point.percentage:.1f}%</b>'
+    },
     title: {
       text: "Breakdown of total value of portfolio"
     },

@@ -32,12 +32,19 @@ h2.holdings-table {
   text-align: center;
 }
 
-th, td {
+th {
+  padding: 10px;
+  text-align: left;
+  background-color: #000066;
+  color: #d0d0e1;
+}
+
+td {
   padding: 10px;
   text-align: left;
   background-color: #d0d0e1;
 }
-th.number-font {
+.number-font {
   font-family: 'Roboto', sans-serif;
 }
 
@@ -118,7 +125,7 @@ button:active {
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%;
+  width: 75%;
   border-radius: 20px;
   color: #fefefe;
 }
@@ -156,11 +163,21 @@ button:active {
 	stroke-width: 2px;
 }
 
-#total-value {
-  font-family: 'Roboto', sans-serif;
-  font-size: 80px;
+.highcharts-title {
+  font-family: 'Lora', serif;
+  color: #000066;
+  font-size: 20px;
 }
 
+#total-value {
+  font-family: 'Roboto', sans-serif;
+  font-size: 8vw;
+}
+
+.remove-share-x {
+  text-align: center;
+  font-size: 3vw;
+}
 
 /* for numerals
 font-family: 'Roboto', sans-serif;
