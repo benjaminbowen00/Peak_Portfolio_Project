@@ -54,8 +54,8 @@ footer {
   text-align: center;
   text-decoration: none;
   outline: none;
-  color: #fff;
-  background-color: #03c692;
+  color: #000066;
+  background-color: #d0d0e1;
   border: none;
   border-radius: 14px;
   box-shadow: 0 8px #999;
@@ -63,7 +63,7 @@ footer {
 
 
 button:hover {
-  background-color: #81a2e8
+  background-color: #03c692
 }
 
 button:active {
