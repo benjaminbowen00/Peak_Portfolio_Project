@@ -17,27 +17,9 @@ body {
     border-top: 10px solid #000066;
     border-bottom: 10px solid #000066;
 }
-/*
-.topnav {
-    overflow: hidden;
-    background-color: #000066;
-}
 
-.topnav a {
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
 
-.topnav a:hover {
-    background-color: #d0d0e1;
-    color: black;
-} */
-
- /* .button {
+ button {
   display: inline-block;
   padding: 10px 20px;
   font-size: 24px;
@@ -50,14 +32,18 @@ body {
   border: none;
   border-radius: 14px;
   box-shadow: 0 8px #999;
-} */
+}
 
-/* .button:hover {background-color: #81a2e8}
 
-.button:active {
-  background-color: #03c692;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px); */
+button:hover {
+  background-color: #81a2e8
+}
+
+button:active {
+    background-color: #03c692;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
 
 .column {
     float: left;
