@@ -38,15 +38,17 @@ SharesListView.prototype.buildTable = function() {
     total.innerText = element.totalValue.toFixed(2);
     tableRow.appendChild(total);
 
+    var removeShareTd = document.createElement('td');
     var removeShareLink = document.createElement('a');
-    removeShareLink.innerText = "x";
+    removeShareLink.setAttribute("class", "remove-share-x")
+    removeShareLink.innerHTML = "&times;";
     removeShareLink.addEventListener('click',function(){
       modalRemoveShares = document.querySelector('#modalRemoveShares');
       modalBoxRemove = new ModalBoxRemove(modalRemoveShares, this.portfolio);
       modalBoxRemove.buildBox(element.name);
     }.bind(this) )
-    tableRow.appendChild(removeShareLink);
-
+    removeShareTd.appendChild(removeShareLink);
+    tableRow.appendChild(removeShareTd);
   }.bind(this));
 }
 

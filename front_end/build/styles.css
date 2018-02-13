@@ -163,7 +163,10 @@ button:active {
   font-size: 8vw;
 }
 
-
+.remove-share-x {
+  text-align: center;
+  font-size: 3vw;
+}
 
 /* for numerals
 font-family: 'Roboto', sans-serif;
