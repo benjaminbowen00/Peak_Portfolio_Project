@@ -1,94 +1,71 @@
-function autocomplete(inp, arr) {
-  console.log(inp, arr);
-  var currentFocus;
+const CompaniesList = require('../models/companies_list.js');
 
-  inp.addEventListener("input", function(e) {
-    var a, b, i, val = this.value;
+var ModalBox = function(container) {
+  this.container = container;
+  this.companiesList = [];
+}
 
-    closeAllLists();
-    if (!val) { return false;}
-    currentFocus = -1;
+ModalBox.prototype.getCompaniesList = function () {
+  var completeCompaniesList = new CompaniesList();
+  // console.log(completeCompaniesList);
+  completeCompaniesList.onLoad = this.buildDatalistBox;
+  completeCompaniesList.getCompanies();
 
-    a = document.createElement("DIV");
-    a.setAttribute("id", this.id + "autocomplete-list");
-    a.setAttribute("class", "autocomplete-items");
+  console.log("inside modal box", completeCompaniesList);
+};
 
-    this.parentNode.appendChild(a);
-    for (i = 0; i < arr.length; i++) {
 
-      if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
 
-        b = document.createElement("DIV");
-        b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
-        b.innerHTML += arr[i].substr(val.length);
 
-        b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
 
-        b.addEventListener("click", function(e) {
+ModalBox.prototype.buildDatalistBox = function (data) {
 
-          inp.value = this.getElementsByTagName("input")[0].value;
+  console.log("bulddataBox");
+  this.companiesList = data;
+  console.log(this.companiesList);
+  // var modalContentDiv = document.createElement('div');
+  var datalistCompanies = document.querySelector('#companies');
 
-          closeAllLists();
-        });
-        a.appendChild(b);
+  data.forEach(function(company){
+    var option = document.createElement('option');
+    option.value = company.name;
+    datalistCompanies.appendChild(option);
+  })
+
+  var getTickerFromCompanyName = function(company){
+    var ticker = null;
+    data.forEach(function(companyFromList){
+      if (companyFromList.name === company){
+        ticker = companyFromList.ticker;
       }
-    }
-  });
+    })
 
-  inp.addEventListener("keydown", function(e) {
-    var x = document.getElementById(this.id + "autocomplete-list");
-    if (x) x = x.getElementsByTagName("div");
-    // if (e.keyCode == 40) {
-    //
-    //   currentFocus++;
-    //
-    //   addActive(x);
-    // } else if (e.keyCode == 38) { //up
-    //
-    //   currentFocus--;
-    //
-    //   addActive(x);
-    // } else if (e.keyCode == 13) {
-    //
-    //   e.preventDefault();
-    //   if (currentFocus > -1) {
-    //
-    //     if (x) x[currentFocus].click();
-    //   }
-    // }
-  });
-  function addActive(x) {
-    if (!x) return false;
-
-    removeActive(x);
-    if (currentFocus >= x.length) currentFocus = 0;
-    if (currentFocus < 0) currentFocus = (x.length - 1);
-
-    x[currentFocus].classList.add("autocomplete-active");
-  }
-  function removeActive(x) {
-
-    for (var i = 0; i < x.length; i++) {
-      x[i].classList.remove("autocomplete-active");
-    }
-  }
-  function closeAllLists(elmnt) {
-
-    var x = document.getElementsByClassName("autocomplete-items");
-    for (var i = 0; i < x.length; i++) {
-      if (elmnt != x[i] && elmnt != inp) {
-        x[i].parentNode.removeChild(x[i]);
-      }
-    }
+    return ticker;
   }
 
-  document.addEventListener("click", function (e) {
-    closeAllLists(e.target);
-  });
+  var savePurchase = function(){
+    console.log("inside savePurchase", this);
+    var selectedCompanyElement = document.querySelector('#selected-company');
+    var numberOfSharesElement = document.querySelector('#number-of-shares');
+    var outputString = `You bought ${numberOfSharesElement.value} shares in ${selectedCompanyElement.value}. The ticker is ${getTickerFromCompanyName(selectedCompanyElement.value)}`;
+    console.log(outputString);
+    selectedCompanyElement.value = "";
+    numberOfSharesElement.value = "";
+  }
+
+
+
+
+  var savePurchaseButton = document.querySelector('#save-purchase-button');
+  savePurchaseButton.addEventListener('click', savePurchase)
+
 }
 
 
-var shares = ["Apple", "Microsoft", "Acorn", "Yamaha"];
 
 
-module.exports = autocomplete;
+
+
+
+
+module.exports = ModalBox;
