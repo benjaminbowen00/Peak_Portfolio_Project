@@ -45,10 +45,12 @@ ModalBox.prototype.buildDatalistBox = function (data) {
 
   var savePurchase = function(){
     console.log("inside savePurchase", this);
-    var selectedCompanyElement = document.querySelector('#selected-company')
-    var numberOfSharesElement = document.querySelector('#number-of-shares')
-    var outputString = `You bought ${numberOfSharesElement.value} shares in ${selectedCompanyElement.value}. The ticker is ${getTickerFromCompanyName(selectedCompanyElement.value)}`
+    var selectedCompanyElement = document.querySelector('#selected-company');
+    var numberOfSharesElement = document.querySelector('#number-of-shares');
+    var outputString = `You bought ${numberOfSharesElement.value} shares in ${selectedCompanyElement.value}. The ticker is ${getTickerFromCompanyName(selectedCompanyElement.value)}`;
     console.log(outputString);
+    selectedCompanyElement.value = "";
+    numberOfSharesElement.value = "";
   }
 
 
