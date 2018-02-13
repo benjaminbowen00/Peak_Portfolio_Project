@@ -16,7 +16,6 @@ Transaction.prototype.getPrice = function() {
 };
 
 Transaction.prototype.updatePrice = function(responseBody) {
-  console.log(responseBody);
   var priceData = responseBody["Time Series (1min)"];
   var price = Object.values(priceData);
   if (this.number < 0) {
@@ -33,7 +32,7 @@ Transaction.prototype.save = function() {
 };
 
 Transaction.prototype.toast = function(responseBody) {
-  Materialize.toast('Transaction saved!', 150000);
+  Materialize.toast('Transaction saved!', 4000);
 };
 
 module.exports = Transaction;

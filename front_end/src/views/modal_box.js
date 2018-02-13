@@ -11,8 +11,6 @@ ModalBox.prototype.getCompaniesList = function () {
   // console.log(completeCompaniesList);
   completeCompaniesList.onLoad = this.buildDatalistBox;
   completeCompaniesList.getCompanies();
-
-  console.log("inside modal box", completeCompaniesList);
 };
 
 

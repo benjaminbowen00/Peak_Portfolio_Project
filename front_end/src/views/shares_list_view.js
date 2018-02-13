@@ -16,8 +16,6 @@ SharesListView.prototype.buildTable = function() {
 
     var companyName = document.createElement('td');
     var name = this.portfolio.getCompanyName(element.name);
-    console.log(element.name);
-    console.log(name);
     companyName.innerText = name;
     tableRow.appendChild(companyName);
 
