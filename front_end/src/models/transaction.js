@@ -18,7 +18,11 @@ Transaction.prototype.getPrice = function() {
 Transaction.prototype.updatePrice = function(responseBody) {
   var priceData = responseBody["Time Series (1min)"];
   var price = Object.values(priceData);
-  this.purchase_price = price[0]["4. close"];
+  if (this.number < 0) {
+    this.purchase_price = parseFloat(price[0]["4. close"]) * -1;
+  } else {
+    this.purchase_price = parseFloat(price[0]["4. close"]);
+  }
   this.save();
 };
 
