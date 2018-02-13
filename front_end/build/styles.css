@@ -26,7 +26,7 @@ th, td {
   text-align: left;
   background-color: #d0d0e1;
 }
-th.number-font {
+.number-font {
   font-family: 'Roboto', sans-serif;
 }
 
@@ -147,7 +147,7 @@ button:active {
 
 #total-value {
   font-family: 'Roboto', sans-serif;
-  font-size: 80px;
+  font-size: 8vw;
 }
 
 

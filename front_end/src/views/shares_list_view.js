@@ -23,15 +23,18 @@ SharesListView.prototype.buildTable = function() {
 
     var number = document.createElement('td');
     number.innerText = element.number;
+    number.setAttribute("class", "number-font");
     console.log(element.number);
     tableRow.appendChild(number);
 
     var price = document.createElement('td');
     var priceNumber = parseFloat(element.price);
+    price.setAttribute("class", "number-font");
     price.innerText = priceNumber.toFixed(2);
     tableRow.appendChild(price);
 
     var total = document.createElement('td');
+    total.setAttribute("class", "number-font");
     total.innerText = element.totalValue.toFixed(2);
     tableRow.appendChild(total);
 
