@@ -7,6 +7,8 @@ const SharesListView = function(portfolio) {
 
 SharesListView.prototype.buildTable = function() {
   var table = document.querySelector("#shares-list");
+  table.innerHTML = "";
+  table.appendChild(this.createTableHeaders());
 
   this.portfolio.sharesArray.forEach(function(element) {
     var tableRow = document.createElement('tr');
@@ -14,6 +16,8 @@ SharesListView.prototype.buildTable = function() {
 
     var companyName = document.createElement('td');
     var name = this.portfolio.getCompanyName(element.name);
+    console.log(element.name);
+    console.log(name);
     companyName.innerText = name;
     tableRow.appendChild(companyName);
 
@@ -62,5 +66,33 @@ SharesListView.prototype.buildTable = function() {
   finalTableRow.appendChild(total);
   table.appendChild(finalTableRow);
 }
+
+SharesListView.prototype.createTableHeaders = function() {
+  var headerRow = document.createElement('tr');
+  var nameHeader = document.createElement('th');
+  nameHeader.innerText = "Company Name";
+  var tickerHeader = document.createElement('th');
+  tickerHeader.innerText = "Company Ticker";
+  var numberHeader = document.createElement('th');
+  numberHeader.innerText = "Number of Shares";
+  var priceHeader = document.createElement('th');
+  priceHeader.innerText = "Closing Price ($)";
+  var valueHeader = document.createElement('th');
+  valueHeader.innerText = "Total Value ($)";
+  var removeHeader = document.createElement('th');
+  removeHeader.innerText = "Remove shares";
+
+  headerRow.appendChild(nameHeader);
+  headerRow.appendChild(tickerHeader);
+  headerRow.appendChild(numberHeader);
+  headerRow.appendChild(priceHeader);
+  headerRow.appendChild(valueHeader);
+  headerRow.appendChild(removeHeader);
+
+  return headerRow;
+}
+
+
+
 
 module.exports = SharesListView;
