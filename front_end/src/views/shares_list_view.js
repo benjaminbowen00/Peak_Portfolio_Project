@@ -1,3 +1,6 @@
+const ModalBoxRemove = require('./modal_box_remove');
+
+
 const SharesListView = function(portfolio) {
   this.portfolio = portfolio;
 }
@@ -20,6 +23,7 @@ SharesListView.prototype.buildTable = function() {
 
     var number = document.createElement('td');
     number.innerText = element.number;
+    console.log(element.number);
     tableRow.appendChild(number);
 
     var price = document.createElement('td');
@@ -30,6 +34,16 @@ SharesListView.prototype.buildTable = function() {
     var total = document.createElement('td');
     total.innerText = element.totalValue.toFixed(2);
     tableRow.appendChild(total);
+
+    var removeShareLink = document.createElement('a');
+    removeShareLink.innerText = "Remove shares";
+    removeShareLink.addEventListener('click',function(){
+      modalRemoveShares = document.querySelector('#modalRemoveShares');
+      modalBoxRemove = new ModalBoxRemove(modalRemoveShares, this.portfolio);
+      modalBoxRemove.buildBox(element.name);
+    }.bind(this) )
+    tableRow.appendChild(removeShareLink);
+
   }.bind(this));
 }
 

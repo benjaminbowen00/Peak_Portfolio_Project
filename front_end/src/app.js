@@ -9,7 +9,7 @@ const Transaction = require('./models/transaction.js');
 const ModalBox = require('./views/modal_box.js');
 
 var getPrices = function(transactionList) {
-  var portfolio = new Portfolio(transactionList);
+  portfolio = new Portfolio(transactionList);
   portfolio.onUpdate = updatePortfolioShares.bind(portfolio);
   portfolio.getCompanyPrices();
 };
@@ -34,37 +34,26 @@ const app = function() {
   transactionList.onUpdate = getResponse.bind(transactionList);
   transactionList.getTransactions();
 
-  // autocomplete(document.getElementById('sharesInput'), ['Apple', 'Microsoft']);
-
-  // Gets the modal (loads on the main webpage)
   var modal = document.getElementById('modalPorfolioUpdate');
+  window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+      }
+  };
 
-  // Gets the button that opens the modal (loads on the main webpage)
   var btn = document.getElementById("openModalBtn");
-
-  // Get the <span> element that closes the modal
-  var span = document.getElementsByClassName("close")[0];
-
-  // onClick button opens the modal
   btn.onclick = function() {
       modal.style.display = "block";
       var modalBoxDiv = document.querySelector('#datalist-div');
       var modalBox = new ModalBox(modalBoxDiv);
       modalBox.getCompaniesList();
 
-  }
+  };
 
-  // this is the 'x' in the top corner and closes the modal
+  var span = document.getElementsByClassName("close")[0];
   span.onclick = function() {
       modal.style.display = "none";
-  }
-
-  // This shuts the modal if the user clicks anywhere else on the page.
-  window.onclick = function(event) {
-      if (event.target == modal) {
-          modal.style.display = "none";
-      }
-  }
+  };
 
 };
 

@@ -1,88 +1,123 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-
 body {
-    margin: 0;
-    color: #000066
+  margin: 0;
+  color: #000066;
+  font-family: 'Lora', serif;
 }
 
 .header {
-    background-color: #d0d0e1;
-    padding: 10px;
-    text-align: center;
-    color: #000066
+  background-color: #d0d0e1;
+  padding: 0px;
+  text-align: center;
+  color: #000066;
+  border-top: 10px solid #000066;
+  border-bottom: 10px solid #000066;
 }
 
-.topnav {
-    overflow: hidden;
-    background-color: #000066;
+h2.holdings-table {
+  text-align: center;
 }
 
-.topnav a {
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+th, td {
+  padding: 10px;
+  text-align: left;
+  background-color: #d0d0e1;
+}
+th.number-font {
+  font-family: 'Roboto', sans-serif;
 }
 
-.topnav a:hover {
-    background-color: #d0d0e1;
-    color: black;
+table {
+  margin-left:auto;
+  margin-right:auto;
+}
+
+footer {
+  margin-top: 10px;
+  background-color: #d0d0e1;
+  padding: 0px;
+  text-align: center;
+  color: #000066;
+  border-top: 10px solid #000066;
+  border-bottom: 10px solid #000066;
+}
+
+
+ button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 24px;
+  cursor: point er;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #000066;
+  background-color: #d0d0e1;
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 8px #999;
+}
+
+button:hover {
+  background-color: #03c692
+}
+
+button:active {
+  background-color: #03c692;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 
 .column {
-    float: left;
-    width: 50%;
-    padding: 15px;
+  float: left;
+  width: 50%;
+  padding: 15px;
 }
 
 .row:after {
-    content: "";
-    display: table;
-    clear: both;
+  content: "";
+  display: table;
+  clear: both;
 }
 
 @media (max-width:600px) {
-    .column {
-        width: 100%;
+  .column {
+  width: 100%;
     }
 }
 
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    padding-top: 100px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(8,0,60,0.4);
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
 }
 
 /* Modal Content */
 .modal-content {
-    background-color: #000066;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    border-radius: 25px;
-    color: #fefefe;
+  background-color: #000066;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  border-radius: 20px;
+  color: #fefefe;
 }
 
 /* The Close Button */
 .close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
 }
 
 .close:hover,
@@ -91,3 +126,33 @@ body {
     text-decoration: none;
     cursor: pointer;
 }
+
+
+#portfolio-value-display {
+    text-align: center;
+}
+
+/* div {
+  background-color: #d0d0e1;
+} */
+
+/* Hicharts  */
+@import 'https://code.highcharts.com/css/highcharts.css';
+
+.highcharts-background {
+	fill: #d0d0e1;
+	stroke: #000066;
+	stroke-width: 2px;
+}
+
+#total-value {
+  font-family: 'Roboto', sans-serif;
+  font-size: 80px;
+}
+
+
+/* for numerals
+font-family: 'Roboto', sans-serif;
+
+for words
+font-family: 'Lora', serif; */
