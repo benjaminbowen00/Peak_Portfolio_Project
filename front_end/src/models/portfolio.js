@@ -46,6 +46,7 @@ Portfolio.prototype.setSharesArray = function(array) {
 
 }.bind(this))
   this.getStockNumberAndTotal();
+  this.removeZeroShare();
 };
 
 Portfolio.prototype.getStockNumberAndTotal = function() {
@@ -87,6 +88,10 @@ Portfolio.prototype.usePurchasePrice = function(share) {
   var result = this.list.transactions.filter(element => element.ticker === share["1. symbol"]);
   var length = result.length;
   return result[length-1].purchase_price;
+};
+
+Portfolio.prototype.removeZeroShare = function() {
+  this.sharesArray = this.sharesArray.filter(element => element.number !== 0)
 };
 
 module.exports = Portfolio;

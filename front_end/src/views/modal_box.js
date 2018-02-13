@@ -1,4 +1,5 @@
 const CompaniesList = require('../models/companies_list.js');
+const Transaction = require('../models/transaction.js');
 
 var ModalBox = function(container) {
   this.container = container;
@@ -25,8 +26,8 @@ ModalBox.prototype.buildDatalistBox = function (data) {
   console.log(this.companiesList);
   // var modalContentDiv = document.createElement('div');
   var datalistCompanies = document.querySelector('#companies');
-
-  data.forEach(function(company){
+  datalistCompanies.innerHTML = "";
+  this.companiesList.forEach(function(company){
     var option = document.createElement('option');
     option.value = company.name;
     datalistCompanies.appendChild(option);
@@ -48,7 +49,11 @@ ModalBox.prototype.buildDatalistBox = function (data) {
     var selectedCompanyElement = document.querySelector('#selected-company');
     var numberOfSharesElement = document.querySelector('#number-of-shares');
     var outputString = `You bought ${numberOfSharesElement.value} shares in ${selectedCompanyElement.value}. The ticker is ${getTickerFromCompanyName(selectedCompanyElement.value)}`;
-    console.log(outputString);
+    var companyName = selectedCompanyElement.value;
+    var ticker = getTickerFromCompanyName(companyName);
+    var numberShares = Number(numberOfSharesElement.value);
+    var transaction = new Transaction(companyName, ticker, numberShares);
+    transaction.getPrice();
     selectedCompanyElement.value = "";
     numberOfSharesElement.value = "";
   }
