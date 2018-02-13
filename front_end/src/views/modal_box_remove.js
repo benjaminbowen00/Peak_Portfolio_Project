@@ -7,10 +7,15 @@ var ModalBoxRemove = function(container, portfolio) {
 };
 
 ModalBoxRemove.prototype.buildBox = function(name) {
-  removeSharesDiv = document.querySelector('#remove-shares-div');
-  removeSaveButton = document.querySelector('#remove-save')
-  pCompanyName = document.createElement('p');
-  selectedCompanyName = this.portfolio.getCompanyName(name);
+  var removeSharesDiv = document.querySelector('#remove-shares-div');
+  removeSharesDiv.innerHTML = "";
+  removeSharesDiv.appendChild(this.createBoxLabel());
+  var removeSaveButton = this.createBoxButton();
+  removeSharesDiv.appendChild(removeSaveButton);
+
+
+  var pCompanyName = document.createElement('p');
+  var selectedCompanyName = this.portfolio.getCompanyName(name);
   pCompanyName.innerText = selectedCompanyName;
   removeSharesDiv.appendChild(pCompanyName);
   modalRemoveShares.style.display = "block";
@@ -34,6 +39,23 @@ ModalBoxRemove.prototype.buildBox = function(name) {
   transaction.getPrice();
   }
   removeSaveButton.addEventListener("click", saveRemovedShares)
+};
+
+ModalBoxRemove.prototype.createBoxLabel = function() {
+  var label = document.createElement('label');
+  label.innerText = "Number of shares to remove:";
+  var input = document.createElement('input');
+  input.setAttribute("id", "number-of-shares-remove");
+  input.setAttribute("type", "text");
+  label.appendChild(input);
+  return label;
+};
+
+ModalBoxRemove.prototype.createBoxButton = function() {
+  var button = document.createElement('button');
+  button.setAttribute("id", "remove-save");
+  button.innerText = "Save";
+  return button;
 };
 
 module.exports = ModalBoxRemove;
