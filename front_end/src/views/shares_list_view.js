@@ -23,7 +23,6 @@ SharesListView.prototype.buildTable = function() {
 
     var number = document.createElement('td');
     number.innerText = element.number;
-    console.log(element.number);
     tableRow.appendChild(number);
 
     var price = document.createElement('td');
