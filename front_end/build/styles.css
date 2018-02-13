@@ -177,6 +177,8 @@ button:active {
 .remove-share-x {
   text-align: center;
   font-size: 3vw;
+  cursor: pointer;
+
 }
 
 /* for numerals
