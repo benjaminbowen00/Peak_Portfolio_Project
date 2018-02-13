@@ -50,6 +50,18 @@ SharesListView.prototype.buildTable = function() {
     removeShareTd.appendChild(removeShareLink);
     tableRow.appendChild(removeShareTd);
   }.bind(this));
+
+  var finalTableRow = document.createElement('tr');
+  for(i = 0; i < 4; i++) {
+    var emptyCell = document.createElement('td');
+    finalTableRow.appendChild(emptyCell);
+  }
+  var total = document.createElement('td');
+  var totalAmount = this.portfolio.getTotalValue();
+  total.innerText = totalAmount.toFixed(2);
+  total.setAttribute("class", "number-font");
+  finalTableRow.appendChild(total);
+  table.appendChild(finalTableRow);
 }
 
 module.exports = SharesListView;
