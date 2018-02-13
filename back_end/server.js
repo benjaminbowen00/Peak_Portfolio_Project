@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
 const cors = require('cors');
 const cron = require('node-cron');
+const Portfolio = require('./models/portfolio.js');
 
 server.use(bodyParser.json());
 server.use(cors());
@@ -31,6 +32,13 @@ MongoClient.connect('mongodb://localhost:27017', function(err, client) {
     })
   })
 
+  server.get("/api/valuations", function(req, res) {
+    db.collection("valuations").find().toArray(function(err, result) {
+      res.status(200);
+      res.json(result);
+    })
+  })
+
   server.post('/api/transactions', function(req, res) {
     db.collection("purchased_shares").insert(req.body, function(err, result) {
       if (err) {
@@ -48,10 +56,24 @@ MongoClient.connect('mongodb://localhost:27017', function(err, client) {
     console.log('Listening on port 5000');
   })
 
-  var valuationSchedule = cron.schedule('0 0 22 * * 1-5', function() {
-    console.log("testing");
-  })
+  var updatePortfolioShares = function(responseBody) {
+    var array = responseBody["Stock Quotes"];
+    this.setSharesArray(array);
+    var valuation = this.getTotalValue();
+    var dbValuation = {value: valuation, date: new Date()}
+    db.collection("valuations").insert(dbValuation);
+  };
 
-  valuationSchedule.start();
+  var valuationApp = function() {
+    db.collection("purchased_shares").find().toArray(function(err, result) {
+      var portfolio = new Portfolio(result);
+      portfolio.onUpdate = updatePortfolioShares.bind(portfolio);
+      portfolio.getCompanyPrices();
+    });
+  };
+
+  var valuationSchedule = cron.schedule('0 0 22 * * 1-5', valuationApp)
+
+  // valuationSchedule.start();
 
 })
