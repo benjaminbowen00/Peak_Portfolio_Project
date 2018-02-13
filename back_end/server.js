@@ -3,6 +3,7 @@ const server = express();
 const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
 const cors = require('cors');
+const cron = require('node-cron');
 
 server.use(bodyParser.json());
 server.use(cors());
@@ -46,5 +47,11 @@ MongoClient.connect('mongodb://localhost:27017', function(err, client) {
   server.listen(5000, function() {
     console.log('Listening on port 5000');
   })
+
+  var valuationSchedule = cron.schedule('0 0 22 * * 1-5', function() {
+    console.log("testing");
+  })
+
+  valuationSchedule.start();
 
 })
