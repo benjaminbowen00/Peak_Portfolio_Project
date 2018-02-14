@@ -14,7 +14,7 @@ var app = function() {
     var stockChart = new StockLineChart(responseBody);
   })
 
-  var transactionRequest = new Request('http://localhost:5000/api/transactions');
+  var transactionRequest = new Request('http://localhost:5000/api/transactions/' + ticker);
   transactionRequest.get(function(responseBody) {
     var view = new TransactionTableView(responseBody);
     view.buildTable();

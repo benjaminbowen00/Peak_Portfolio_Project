@@ -25,6 +25,14 @@ MongoClient.connect('mongodb://localhost:27017', function(err, client) {
     })
   })
 
+  server.get("/api/transactions/:ticker", function(req, res) {
+    var requestedTicker = req.params.ticker.toUpperCase();
+    db.collection("purchased_shares").find({ticker: requestedTicker}).toArray(function(err, result) {
+      res.status(200);
+      res.json(result);
+    })
+  })
+
   server.get("/api/tickers", function(req, res) {
     db.collection("tickers").find().toArray(function(err, result) {
       res.status(200);
