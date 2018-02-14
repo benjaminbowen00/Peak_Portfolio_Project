@@ -45,12 +45,6 @@ var chart = new Highcharts.Chart({
 
 }
 
+
+
 module.exports = StockLineChart;
-
-
-
-
-
-
-
-}
