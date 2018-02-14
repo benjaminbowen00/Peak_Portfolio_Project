@@ -12,7 +12,7 @@
 module.exports = {
     entry: {
         app: __dirname + "/src/app.js",
-        stock: __dirname + "/src/stock_app.js"
+        stock: __dirname + "/src/stock-app.js"
     },
     output: {
         path: __dirname + "/build",
