@@ -156,7 +156,7 @@ Transaction.prototype.save = function() {
 };
 
 Transaction.prototype.toast = function(responseBody) {
-  Materialize.toast('Transaction saved!', 4000);
+  Materialize.toast('Transaction saved!', 4000, 'toast');
 };
 
 module.exports = Transaction;
@@ -11305,12 +11305,14 @@ SharesListView.prototype.buildTable = function() {
   var finalTableRow = document.createElement('tr');
   for(i = 0; i < 4; i++) {
     var emptyCell = document.createElement('td');
+    emptyCell.setAttribute("class", "empty-cell");
     finalTableRow.appendChild(emptyCell);
   }
   var total = document.createElement('td');
   var totalAmount = this.portfolio.getTotalValue();
   total.innerText = totalAmount.toFixed(2);
   total.setAttribute("class", "number-font");
+  total.setAttribute("id", "background-vice-versa");
   finalTableRow.appendChild(total);
   table.appendChild(finalTableRow);
 }
@@ -11361,15 +11363,16 @@ var ModalBoxRemove = function(container, portfolio) {
 ModalBoxRemove.prototype.buildBox = function(name) {
   var removeSharesDiv = document.querySelector('#remove-shares-div');
   removeSharesDiv.innerHTML = "";
+  var pCompanyName = document.createElement('p');
+  var selectedCompanyName = this.portfolio.getCompanyName(name);
+  pCompanyName.innerText = selectedCompanyName;
+  removeSharesDiv.appendChild(pCompanyName);
   removeSharesDiv.appendChild(this.createBoxLabel());
   var removeSaveButton = this.createBoxButton();
   removeSharesDiv.appendChild(removeSaveButton);
 
 
-  var pCompanyName = document.createElement('p');
-  var selectedCompanyName = this.portfolio.getCompanyName(name);
-  pCompanyName.innerText = selectedCompanyName;
-  removeSharesDiv.appendChild(pCompanyName);
+
   modalRemoveShares.style.display = "block";
 
   var getTickerFromCompanyName = function(company){
