@@ -7,6 +7,8 @@ const TotalView = require('./views/total_view.js');
 const autocomplete = require('./views/modal_box.js');
 const Transaction = require('./models/transaction.js');
 const ModalBox = require('./views/modal_box.js');
+const ValuationsList = require('./models/valuations_list.js');
+const LineChart = require('./views/line_chart.js');
 
 var getPrices = function(transactionList) {
   portfolio = new Portfolio(transactionList);
@@ -29,10 +31,17 @@ var getResponse = function(responseBody) {
   getPrices(this);
 };
 
+var getValuationResponse = function(responseBody) {
+  var lineChart = new LineChart(responseBody);
+}
+
 const app = function() {
   var transactionList = new TransactionList('http://localhost:5000/api/transactions');
   transactionList.onUpdate = getResponse.bind(transactionList);
   transactionList.getTransactions();
+  var valuationList = new ValuationsList('http://localhost:5000/api/valuations');
+  valuationList.onUpdate = getValuationResponse;
+  valuationList.getValuations();
 
   var modal = document.getElementById('modalPorfolioUpdate');
 

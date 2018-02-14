@@ -53,6 +53,7 @@ table {
   margin-right:auto;
 }
 
+
 footer {
   margin-top: 10px;
   background-color: #d0d0e1;
@@ -179,6 +180,14 @@ button:active {
   font-size: 3vw;
   cursor: pointer;
 
+}
+
+#line-chart {
+  width: 80vw;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top: 20px;
+  padding: 10px;
 }
 
 /* for numerals
