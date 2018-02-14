@@ -39,6 +39,10 @@ td {
   margin: auto;
 }
 
+#header-centre {
+  text-align: center;
+}
+
 .number-font {
   font-family: 'Roboto', sans-serif;
 }
@@ -168,6 +172,10 @@ a {
 
 a:visited {
   color: #d0d0e1;
+}
+
+nav:hover {
+  color: #018e69
 }
 
 

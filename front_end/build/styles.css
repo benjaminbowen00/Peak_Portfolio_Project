@@ -221,6 +221,17 @@ background-color: #d0d0e1;
   border-top: 2px solid #000066;
 }
 
+a {
+  color: #000066;
+}
+
+a:hover {
+  color: #018e69;
+  font-weight: bold;
+}
+
+
+
 /* for numerals
 font-family: 'Roboto', sans-serif;
 
