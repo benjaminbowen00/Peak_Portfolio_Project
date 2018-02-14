@@ -1,29 +1,32 @@
 const TransactionTableView = function(transactions){
   this.transactions = transactions;
+
 }
 
 TransactionTableView.prototype.buildTable = function(){
   var table = document.querySelector("#transaction-table");
-  table.innerHTML = "";
   table.appendChild(this.createTableHeaders());
 
-  this.portfolio.transactions.forEach(function(element) {
+  this.transactions.forEach(function(element) {
+
     var tableRow = document.createElement('tr');
-    table.appendChild(tableRow);
+
 
     var date = document.createElement('td');
-    dateText = this.getDateFromId(element._id);
+    var dateText = this.getDateFromId(element._id);
     date.innerText = dateText;
     tableRow.appendChild(date);
 
     var numberShares = document.createElement('td');
     numberShares.innerText = element.number;
-    tableRow.appendChild(number);
+    tableRow.appendChild(numberShares);
 
     var purchasePrice = document.createElement('td');
-    purchasePrice = element.purchase_price;
+    purchasePrice.innerText = element.purchase_price.toFixed(2);
     tableRow.appendChild(purchasePrice);
-  }
+
+    table.appendChild(tableRow);
+  }.bind(this));
 
 }
 
@@ -36,7 +39,6 @@ TransactionTableView.prototype.createTableHeaders = function() {
   numberHeader.innerText = "Number of shares";
   var priceHeader = document.createElement('th');
   priceHeader.innerText = "price ($)";
-
 
   headerRow.appendChild(dateHeader);
   headerRow.appendChild(numberHeader);

@@ -2,6 +2,7 @@ const Request = require('./services/request.js');
 const ticker = document.location.href.split("/").pop();
 const APIKey = require('./services/api_key.js');
 const StockLineChart = require('./views/stock_line_chart.js')
+const TransactionTableView = require('./views/transaction_table_view.js')
 
 
 var app = function() {
@@ -13,10 +14,14 @@ var app = function() {
   })
 
   var transactionRequest = new Request('http://localhost:5000/api/transactions');
-  transactionRequest.get();
+  transactionRequest.get(function(responseBody) {
+    var view = new TransactionTableView(responseBody);
+    view.buildTable();
+  });
 
   var newsRequest = new Request('https://api.iextrading.com/1.0/stock/' + ticker + '/news/last/5');
-  newsRequest.get();
+  newsRequest.get(
+  });
 };
 
 document.addEventListener('DOMContentLoaded', app);
