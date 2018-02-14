@@ -47,14 +47,18 @@ const app = function() {
 
   var removeModal = document.getElementById('modalRemoveShares');
 
-  var btn = document.getElementById("openModalBtn");
-  btn.onclick = function() {
+  var addModal = function(){
     modal.style.display = "block";
     var modalBoxDiv = document.querySelector('#datalist-div');
     var modalBox = new ModalBox(modalBoxDiv);
     modalBox.getCompaniesList();
 
   };
+  var btn = document.querySelector("#openModalBtn");
+  var btn2 = document.querySelector("#add-share");
+
+  btn.onclick = addModal
+  btn2.onclick = addModal
 
   var span = document.getElementsByClassName("close")[0];
   span.onclick = function() {
