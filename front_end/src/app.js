@@ -33,7 +33,7 @@ var getResponse = function(responseBody) {
 
 var getValuationResponse = function(responseBody) {
   var lineChart = new LineChart(responseBody);
-}
+};
 
 const app = function() {
   var transactionList = new TransactionList('http://localhost:5000/api/transactions');
