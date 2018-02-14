@@ -18,7 +18,7 @@
   <div class="topnav">
   </div>
 
-<!-- above the crease: total and pie chart -->
+  <!-- above the crease: total and pie chart -->
 
   <div class="row" >
     <div class="column">
@@ -31,31 +31,33 @@
     </div>
   </div>
 
-<!-- centered table below the crease -->
+  <!-- centered table below the crease -->
 
   <div class="row">
 
-      <h2 class="holdings-table">Portfolio holdings</h2>
-      <table id="shares-list">
-        <tr>
-          <th>Company Name</th>
-          <th>Company Ticker</th>
-          <th>Number of Shares</th>
-          <th>Closing Price ($)</th>
-          <th>Total Value ($)</th>
-          <th>Remove shares</th>
-        </tr>
-      </table>
+    <h2 class="holdings-table">Portfolio holdings</h2>
+    <table id="shares-list">
+      <tr>
+        <th>Company Name</th>
+        <th>Company Ticker</th>
+        <th>Number of Shares</th>
+        <th>Closing Price ($)</th>
+        <th>Total Value ($)</th>
+        <th>Remove shares</th>
+      </tr>
+    </table>
 
+    <!-- This button opens the modal -->
+
+    <div class="row">
+      <div class="column">
+        <button id="openModalBtn">Add shares</button>
+      </div>
+    </div>
   </div>
 
-  <div class="row">
-  <div class="column">
-  <button id="openModalBtn">Add shares</button>
-  </div>
-  </div>
 
-<!-- below the shares list -->
+  <!-- below the shares list -->
 
   <div class="row" >
     <h2 class="holdings-table">Portfolio performance</h2>
@@ -67,7 +69,7 @@
 
 <!-- modal element -->
 
-<!-- This button opens the modal -->
+
 
 
 
@@ -85,6 +87,7 @@
         </datalist>
         <label>Number of shares:
           <input id="number-of-shares" type="text" /></label>
+
           <button id="save-purchase-button">Save</button>
 
         </div>
@@ -99,17 +102,14 @@
         <span class="close">&times;</span>
         <h3>Remove Shares</h3>
         <div id='remove-shares-div'>
-          <!-- <label>Number of shares to remove:
-          <input id="number-of-shares-remove" type="text" /></label>
-          <button id="remove-save">Save</button> -->
         </div>
 
       </div>
-  </div>
-<footer>
+    </div>
+    <footer>
 
-<p>Created by Team Awesome in week fourteen at <a href="https://codeclan.com/" >CodeClan, Edinburgh</a></p>
+      <p>Created by Team Awesome in week fourteen at <a href="https://codeclan.com/" >CodeClan, Edinburgh</a></p>
 
-</footer>
-</body>
-</html>
+    </footer>
+  </body>
+  </html>

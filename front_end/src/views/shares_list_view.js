@@ -55,12 +55,14 @@ SharesListView.prototype.buildTable = function() {
   var finalTableRow = document.createElement('tr');
   for(i = 0; i < 4; i++) {
     var emptyCell = document.createElement('td');
+    emptyCell.setAttribute("class", "empty-cell");
     finalTableRow.appendChild(emptyCell);
   }
   var total = document.createElement('td');
   var totalAmount = this.portfolio.getTotalValue();
   total.innerText = totalAmount.toFixed(2);
   total.setAttribute("class", "number-font");
+  total.setAttribute("id", "background-vice-versa");
   finalTableRow.appendChild(total);
   table.appendChild(finalTableRow);
 }
