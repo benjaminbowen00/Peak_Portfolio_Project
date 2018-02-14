@@ -62,6 +62,7 @@ SharesListView.prototype.buildTable = function() {
   var totalAmount = this.portfolio.getTotalValue();
   total.innerText = totalAmount.toFixed(2);
   total.setAttribute("class", "number-font");
+  total.setAttribute("id", "background-vice-versa");
   finalTableRow.appendChild(total);
   table.appendChild(finalTableRow);
 }

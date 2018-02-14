@@ -195,6 +195,14 @@ button:active {
   background-color: #fff;
 
 }
+
+#background-vice-versa {
+  border-bottom: 2px solid #000066;
+  border-left: 2px solid #000066;
+  border-right: 2px solid #000066;
+  border-top: 2px solid #000066;
+}
+
 /* for numerals
 font-family: 'Roboto', sans-serif;
 
