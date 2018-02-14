@@ -65,10 +65,91 @@
 /************************************************************************/
 /******/ ({
 
-/***/ 20:
+/***/ 0:
 /***/ (function(module, exports) {
 
-console.log(document.location.href.split("/").pop());
+const Request = function(url) {
+  this.url = url;
+}
+
+Request.prototype.get = function(callback) {
+  const request = new XMLHttpRequest();
+  request.open('GET', this.url);
+  request.addEventListener('load', function() {
+    if(this.status!==200) {
+      return;
+    }
+
+    const responseBody = JSON.parse(this.responseText);
+
+    callback(responseBody);
+  });
+  request.send();
+}
+
+Request.prototype.post = function(callback, body) {
+  const request = new XMLHttpRequest();
+  request.open('POST', this.url);
+  request.setRequestHeader('Content-Type', 'application/json');
+  request.addEventListener('load', function() {
+    if(this.status!==201) {
+      return;
+    }
+
+    const responseBody = JSON.parse(this.responseText);
+
+    callback(responseBody);
+  });
+  request.send(JSON.stringify(body));
+}
+
+Request.prototype.delete = function(callback) {
+  const request = new XMLHttpRequest();
+  request.open('DELETE', this.url);
+  request.addEventListener('load', function() {
+    if(this.status!==204) {
+      return;
+    }
+
+    callback();
+  });
+  request.send();
+}
+
+module.exports = Request;
+
+
+/***/ }),
+
+/***/ 20:
+/***/ (function(module, exports, __webpack_require__) {
+
+const Request = __webpack_require__(0);
+const ticker = document.location.href.split("/").pop();
+const APIKey = __webpack_require__(3)
+
+
+var app = function() {
+  var apiKey = new APIKey();
+  var priceUrl = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=' + ticker + '&apikey=' + apiKey.apiKey;
+  var priceRequest = new Request(priceUrl);
+  priceRequest.get()
+
+};
+
+document.addEventListener('DOMContentLoaded', app);
+
+
+/***/ }),
+
+/***/ 3:
+/***/ (function(module, exports) {
+
+const APIKey = function() {
+  this.apiKey = "UD3TIRGG5C6BZWPC";
+}
+
+module.exports = APIKey;
 
 
 /***/ })
