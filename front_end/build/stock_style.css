@@ -2,15 +2,6 @@
   box-sizing: border-box;
 }
 
-.toast {
-  margin: 0 auto;
-  width: 150px;
-  padding: 20px;
-  background-color: #000066;
-  border: 1px solid black;
-  position: fixed;
-  color: #fff;
-}
 
 body {
   margin: 0;
@@ -43,6 +34,15 @@ td {
   text-align: left;
   background-color: #d0d0e1;
 }
+
+#stock-line-chart {
+  margin: auto;
+}
+
+#header-centre {
+  text-align: center;
+}
+
 .number-font {
   font-family: 'Roboto', sans-serif;
 }
@@ -89,7 +89,7 @@ button:active {
 
 .column {
   float: left;
-  width: 50%;
+  width: 20%;
   padding: 15px;
 }
 
@@ -105,44 +105,6 @@ button:active {
   }
 }
 
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  padding-top: 100px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-}
-
-/* Modal Content */
-.modal-content {
-  background-color: #000066;
-  margin: auto;
-  position: center;
-  padding: 20px;
-  border: 2px solid #fff;
-  width: 75%;
-  border-radius: 8px;
-  color: #fff;
-}
-
-/* The Close Button */
-.close {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
 
 #save-purchase-button {
   padding-left: 20px;
@@ -169,6 +131,11 @@ button:active {
   margin-left: 20px;
 }
 
+nav {
+  background-color: #000066;
+  margin: 5px 0px;
+  padding: 5px;
+}
 
 /* div {
 background-color: #d0d0e1;
@@ -189,18 +156,8 @@ background-color: #d0d0e1;
   font-size: 20px;
 }
 
-#total-value {
-  font-family: 'Roboto', sans-serif;
-  font-size: 8vw;
-}
 
-.remove-share-x {
-  margin: auto;
-  font-size: 3vw;
-  cursor: pointer;
-}
-
-#line-chart {
+#stock-line-chart {
   width: 80vw;
   margin-left:auto;
   margin-right:auto;
@@ -209,26 +166,19 @@ background-color: #d0d0e1;
   padding: 10px;
 }
 
-.empty-cell {
-  background-color: #fff;
-
-}
-
-#background-vice-versa {
-  border-bottom: 2px solid #000066;
-  border-left: 2px solid #000066;
-  border-right: 2px solid #000066;
-  border-top: 2px solid #000066;
-}
-
 a {
   color: #000066;
 }
 
-a:hover {
-  color: #018e69;
-  font-weight: bold;
+a:visited {
+  color: #d0d0e1;
 }
+
+nav:hover {
+  color: #018e69
+}
+
+
 
 
 

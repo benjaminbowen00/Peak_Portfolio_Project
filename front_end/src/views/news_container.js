@@ -7,6 +7,7 @@ NewsContainer.prototype.render = function(responseBody) {
   this.news = responseBody;
   this.news.forEach(function(element) {
     var storyDiv = document.createElement('div');
+    storyDiv.setAttribute("class", "column");
     storyDiv.appendChild(this.createHeader(element));
 
     var summary = document.createElement('p');
