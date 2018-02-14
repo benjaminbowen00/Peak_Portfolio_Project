@@ -24,9 +24,13 @@ TransactionTableView.prototype.buildTable = function(){
     var purchasePrice = document.createElement('td');
     purchasePrice.innerText = element.purchase_price.toFixed(2);
     tableRow.appendChild(purchasePrice);
+    
+    var stockTitle = document.querySelector("#stock-title");
+    stockTitle.innerText = element.name;
 
     table.appendChild(tableRow);
   }.bind(this));
+
 
 }
 
