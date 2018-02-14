@@ -85,7 +85,7 @@ button:active {
 
 .column {
   float: left;
-  width: 50%;
+  width: 20%;
   padding: 15px;
 }
 
@@ -100,7 +100,6 @@ button:active {
     width: 100%;
   }
 }
-
 
 
 #save-purchase-button {
@@ -149,9 +148,6 @@ background-color: #d0d0e1;
 }
 
 
-
-
-
 #stock-line-chart {
   width: 80vw;
   margin-left:auto;
@@ -159,6 +155,14 @@ background-color: #d0d0e1;
   margin-top: 20px;
   margin-bottom: 40px;
   padding: 10px;
+}
+
+a {
+  color: #000066;
+}
+
+a:visited {
+  color: #d0d0e1;
 }
 
 
