@@ -3,7 +3,7 @@ const Highcharts = require('highcharts');
 var LineChart = function(valuationsList) {
 
   var dataArray = valuationsList.map(x => [Date.parse(x.date), x.value]);
-  var dataPoints = dataArray.slice(-30);
+  var dataPoints = dataArray.slice(-50);
 
   var container = document.querySelector('#line-chart');
 
