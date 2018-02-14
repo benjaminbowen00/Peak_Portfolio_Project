@@ -32,6 +32,7 @@ Portfolio.prototype.buildURL = function() {
 
 Portfolio.prototype.setSharesArray = function(array) {
   this.sharesArray = array.map(function(element){
+    console.log(element);
     if (this.validatePrice(parseFloat(element["2. price"]))){
       return object = {
         name: element["1. symbol"],
@@ -87,7 +88,8 @@ Portfolio.prototype.validatePrice = function(price) {
 Portfolio.prototype.usePurchasePrice = function(share) {
   var result = this.list.transactions.filter(element => element.ticker === share["1. symbol"]);
   var length = result.length;
-  return result[length-1].purchase_price;
+  var price = result[length-1].purchase_price;
+  return Math.abs(price);
 };
 
 Portfolio.prototype.removeZeroShare = function() {
