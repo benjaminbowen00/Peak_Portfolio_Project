@@ -32,7 +32,7 @@ Transaction.prototype.save = function() {
 };
 
 Transaction.prototype.toast = function(responseBody) {
-  Materialize.toast('Transaction saved!', 4000);
+  Materialize.toast('Transaction saved!', 4000, 'toast');
 };
 
 module.exports = Transaction;
