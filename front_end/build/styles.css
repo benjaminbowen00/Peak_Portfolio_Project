@@ -195,11 +195,11 @@ background-color: #d0d0e1;
 }
 
 .remove-share-x {
-  text-align: center;
+  margin: auto;
   font-size: 3vw;
   cursor: pointer;
-
 }
+
 
 #line-chart {
   width: 80vw;
