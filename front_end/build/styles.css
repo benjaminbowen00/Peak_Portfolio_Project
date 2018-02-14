@@ -191,6 +191,10 @@ button:active {
   padding: 10px;
 }
 
+.empty-cell {
+  background-color: #fff;
+
+}
 /* for numerals
 font-family: 'Roboto', sans-serif;
 

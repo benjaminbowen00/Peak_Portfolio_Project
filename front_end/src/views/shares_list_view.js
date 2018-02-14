@@ -55,6 +55,7 @@ SharesListView.prototype.buildTable = function() {
   var finalTableRow = document.createElement('tr');
   for(i = 0; i < 4; i++) {
     var emptyCell = document.createElement('td');
+    emptyCell.setAttribute("class", "empty-cell");
     finalTableRow.appendChild(emptyCell);
   }
   var total = document.createElement('td');
