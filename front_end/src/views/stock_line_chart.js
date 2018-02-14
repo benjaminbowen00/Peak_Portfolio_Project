@@ -37,7 +37,7 @@ var chart = new Highcharts.Chart({
 
   series: [{
     name: 'value',
-    data: dataArray;
+    data: dataArray
   }]
 
 });
