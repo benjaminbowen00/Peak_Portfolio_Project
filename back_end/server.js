@@ -74,6 +74,6 @@ MongoClient.connect('mongodb://localhost:27017', function(err, client) {
 
   var valuationSchedule = cron.schedule('0 0 22 * * 1-5', valuationApp)
 
-  // valuationSchedule.start();
+  valuationSchedule.start();
 
 })

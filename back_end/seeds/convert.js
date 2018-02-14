@@ -27,6 +27,7 @@ MongoClient.connect('mongodb://localhost:27017', function(err, client) {
     return;
   };
   const db = client.db("share_data");
+  db.collection("tickers").drop();
   db.collection("tickers").insert(tickers, function(err, result) {
     console.log(result);
   });
