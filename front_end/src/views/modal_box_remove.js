@@ -9,15 +9,16 @@ var ModalBoxRemove = function(container, portfolio) {
 ModalBoxRemove.prototype.buildBox = function(name) {
   var removeSharesDiv = document.querySelector('#remove-shares-div');
   removeSharesDiv.innerHTML = "";
+  var pCompanyName = document.createElement('p');
+  var selectedCompanyName = this.portfolio.getCompanyName(name);
+  pCompanyName.innerText = selectedCompanyName;
+  removeSharesDiv.appendChild(pCompanyName);
   removeSharesDiv.appendChild(this.createBoxLabel());
   var removeSaveButton = this.createBoxButton();
   removeSharesDiv.appendChild(removeSaveButton);
 
 
-  var pCompanyName = document.createElement('p');
-  var selectedCompanyName = this.portfolio.getCompanyName(name);
-  pCompanyName.innerText = selectedCompanyName;
-  removeSharesDiv.appendChild(pCompanyName);
+
   modalRemoveShares.style.display = "block";
 
   var getTickerFromCompanyName = function(company){

@@ -149,8 +149,24 @@ button:active {
   margin-left: 20px;
 }
 
+#remove-save {
+  padding-left: 20px;
+  margin-left: 20px;
+}
+
 #portfolio-value-display {
   text-align: center;
+}
+
+#label-space {
+  padding-left: 20px;
+  margin-left: 20px;
+}
+
+#number-of-shares-remove {
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: 20px;
 }
 
 
