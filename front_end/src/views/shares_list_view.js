@@ -15,8 +15,14 @@ SharesListView.prototype.buildTable = function() {
     table.appendChild(tableRow);
 
     var companyName = document.createElement('td');
+    var aTag = document.createElement('a')
+    var link = `/stock/${element.name}`
+    aTag.setAttribute('href', link)
+    companyName.appendChild(aTag);
     var name = this.portfolio.getCompanyName(element.name);
-    companyName.innerText = name;
+    aTag.innerText = name;
+    companyName.appendChild(aTag)
+
     tableRow.appendChild(companyName);
 
     var companyTicker = document.createElement('td');
