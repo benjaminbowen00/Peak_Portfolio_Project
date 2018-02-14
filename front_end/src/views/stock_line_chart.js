@@ -37,7 +37,7 @@ var chart = new Highcharts.Chart({
 
   series: [{
     name: 'value',
-    data: dataArray;
+    data: dataArray
   }]
 
 });
@@ -45,12 +45,6 @@ var chart = new Highcharts.Chart({
 
 }
 
+
+
 module.exports = StockLineChart;
-
-
-
-
-
-
-
-}
