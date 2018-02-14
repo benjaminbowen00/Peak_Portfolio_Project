@@ -57,7 +57,7 @@ MongoClient.connect('mongodb://localhost:27017', function(err, client) {
     return;
   };
   const db = client.db("share_data");
-  db.dropDatabase();
+  db.collection("purchased_shares").drop();
   db.collection("purchased_shares").insert(transactions, function(err, result) {
     console.log(result);
   });
