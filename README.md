@@ -23,5 +23,18 @@ https://www.alphavantage.co/ (Requires sign up)
 ## Setup Instructions
 
 1. Download the files from the repository.
-2. Run 'npm install' to install the dependencies.
-3.  
+2. Run 'npm install' in terminal to install the dependencies.
+3. Seed the database with the company information from the back_end seeds folder 'node convert.js'
+4. If you wish to seed the databases with transactions and valuations run both transaction_seeds.js and valuation_seeds.js
+5. Run mongo in terminal: 'mongod'
+6. Run the back end server: 'npm start'
+7. Run webpack: 'npm run build'
+8. Run the front end server: 'npm start'
+9. Go to localhost:3000 to use the app.
+
+
+## Using the App
+The app allows the user to record any transactions of shares they have made. The modal-box allows you to find any of the companies listed on the NASDAQ or NYSE. Their total, up to date portfolio value is shown, the weightings of their portfolio with different shares is shown in a pie chart and the also in a table. These aggregate all the transactions for a particular share. If you sell shares you can remove them in a similar way to adding them.
+At the bottom of the from page the historical portfolio value is displayed as a line chart. If the back end server is running the value is recorded at 10pm on Monday to Friday through a scheduled task.
+
+Clicking on the name of a company in the table takes the user to a new page showing the change in price of that particular share, the five latest news stories related to that share and the list of any transactions (purchases or sales) of shares for that company.
