@@ -1,7 +1,7 @@
 Peak Portfolio
 =======
 
-## This is an app to help the user manage their stock portfolio. This was completed as a group project on CodeClan's 16 week course. It is a full stack app built using JavaScript (without any additional framework). We used an external API to get up to data share prices, stored all transactions, the list of all companies and the daily portfolio value in a NoSQL database.
+# This is an app to help the user manage their stock portfolio. This was completed as a group project on CodeClan's 16 week course. It is a full stack app built using JavaScript (without any additional framework). We used an external API to get up to data share prices, stored all transactions, the list of all companies and the daily portfolio value in a NoSQL database.
 
 ## Brief
 
